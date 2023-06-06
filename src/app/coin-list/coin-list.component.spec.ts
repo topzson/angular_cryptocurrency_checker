@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { MatTable } from '@angular/material/table';
 import { CoinListComponent } from './coin-list.component';
 
 describe('CoinListComponent', () => {
@@ -8,7 +9,8 @@ describe('CoinListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CoinListComponent ]
+      declarations: [ CoinListComponent ],
+      imports: [ MatTable ]
     })
     .compileComponents();
 

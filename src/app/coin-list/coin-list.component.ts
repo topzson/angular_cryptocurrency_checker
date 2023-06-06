@@ -12,7 +12,7 @@ export class CoinListComponent implements OnInit{
 
   bannerData: any=[];
   dataSource!: MatTableDataSource<any>;
-  displayedColumns: string[] = ['symbol', 'currency_price','price_change_percentage_24h','matket_cap'];
+  displayedColumns: string[] = ['symbol', 'current_price','price_change_percentage_24h','market_cap'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   constructor(private api : ApiService) {}
@@ -22,14 +22,14 @@ export class CoinListComponent implements OnInit{
       this.getBannerData();
   }
   getBannerData(){
-    this.api.getTrendingCurrency("INR").subscribe(res=>{
+    this.api.getTrendingCurrency("THB").subscribe(res=>{
       console.log(res);
       this.bannerData = res;
     })
   }
 
   getAllData(){
-    this.api.getCurrency("INR").subscribe(res=>{
+    this.api.getCurrency("THB").subscribe(res=>{
       console.log(res);
       this.dataSource = new MatTableDataSource<any>(res);
       this.dataSource.sort = this.sort;
